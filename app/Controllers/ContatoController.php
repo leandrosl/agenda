@@ -3,20 +3,24 @@
 namespace Agenda\Controllers;
 
 use Agenda\Models\Contato;
+use Agenda\Repositories\ContatoRepository as Repository;
 
 class ContatoController
 {
+    private $repository;
+
     public function __construct()
     {
-
+        $this->repository = new Repository();
     }
 
     public function getContatos()
     {
-        $contatos = array();
-        array_push($contatos, new Contato("Leandro", "Souza", "Av. Paulista", 
-            "1256", "São Paulo", "(11) xxxx-xxxx"));
-        
-        return $contatos;
+        return $this->repository->todosContatos();
+    }
+
+    public function getContatoPorId($id)
+    {
+        return $this->repository->buscarContatoPeloId($id);
     }
 }

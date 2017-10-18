@@ -2,6 +2,8 @@
 
 namespace Agenda\Models;
 
+use PDO;
+
 class Conexao
 {
     private static $pdo;
@@ -16,7 +18,7 @@ class Conexao
 
         if (!isset(self::$pdo)) {
             try {
-                $pdo = new PDO("mysql:host={$dbHost}:{$dbPort},dbname={$dbName}", 
+                self::$pdo = new PDO("mysql:host={$dbHost}:{$dbPort};dbname={$dbName};charset=utf8", 
                     $dbUsername, $dbPassword);
             }
             catch (PDOException $e) {

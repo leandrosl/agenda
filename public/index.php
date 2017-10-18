@@ -3,7 +3,7 @@
 
 require_once  __DIR__ . "/../vendor/autoload.php";
 
-$controller = new Agenda\Controllers\ContatoController;
+$controller = new Agenda\Controllers\ContatoController();
 
 $contatos = $controller->getContatos();
 
