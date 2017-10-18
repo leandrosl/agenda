@@ -1,0 +1,16 @@
+{
+    "name": "leandrosl/agenda",
+    "description": "ApAgenda para contatos com o objetivo de estudar CRUD e padrões no PHP",
+    "authors": [
+        {
+            "name": "Leandro Souza",
+            "email": "leandro.souza47@hotmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Agenda\\": "app\\"
+        }
+    }
+}
