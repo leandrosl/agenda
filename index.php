@@ -11,10 +11,14 @@ $contatos = $controller->getContatos();
 
 <?php include_once "parts/header.php"; ?>
 
+<?php include_once __DIR__ . '/parts/navbar.php'; ?>
+
 
 <div class="container">
     <h1>Todos os Contatos</h1>
-    <a href="novo_contato.php">Novo Contato</a>
+    <a class="btn btn-default" href="novo_contato.php">Novo Contato</a>
+
+    <br><br>
 
     <?php if ( count($contatos) > 0 ): ?>
         <table class="table table-hover">
