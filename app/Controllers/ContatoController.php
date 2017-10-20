@@ -23,4 +23,9 @@ class ContatoController
     {
         return $this->repository->buscarContatoPeloId($id);
     }
+
+    public function novoContato($req)
+    {
+        header('Location: index.php');
+    }
 }
