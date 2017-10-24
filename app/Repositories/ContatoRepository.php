@@ -3,6 +3,7 @@
 namespace Agenda\Repositories;
 
 use Agenda\Models\Conexao;
+use Agenda\Models\Contato;
 
 class ContatoRepository
 {
@@ -13,9 +14,27 @@ class ContatoRepository
         $this->db = Conexao::getConexao();
     }
 
-    public function novoContato($info)
+    public function novoContato(Contato $contato)
     {
-
+        if ($contato != null) {
+            try {
+                $insert = $this->db->prepare('insert into contatos (nome, sobrenome, endereco, num_endereco, cidade, telefone) ' . 
+                    'values (:nome, :sobrenome, :endereco, :num_endereco, :cidade, :telefone)');
+                $insert->bindParam(':nome', $contato->nome);
+                $insert->bindParam(':sobrenome', $contato->sobrenome);
+                $insert->bindParam(':endereco', $contato->endereco);
+                $insert->bindParam(':num_endereco', $contato->num_endereco);
+                $insert->bindParam(':cidade', $contato->cidade);
+                $insert->bindParam(':telefone', $contato->telefone);
+                return $insert->execute();
+            }
+            catch (\PDOException $e) {
+                echo "PDO Error = {$e->getMessage()}";
+            }
+        }
+        else {
+            throw new Exception('Usuário vazio');
+        }
     }
 
     public function deletarContato($id)

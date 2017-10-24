@@ -26,6 +26,18 @@ class ContatoController
 
     public function novoContato($req)
     {
-        header('Location: index.php');
+        if ($req) {
+            $contato = new Contato($req['nome'], $req['sobrenome'], $req['endereco'], 
+                $req['num_endereco'], $req['cidade'], $req['telefone']);
+            if ($this->repository->novoContato($contato)) {
+                header('Location: index.php');
+            }
+            else {
+                header('Location: novo_contato.php?error=bd_fail');
+            }
+        }
+        else {
+            header('Location: novo_contato.php?error=req_empty');
+        }
     }
 }
