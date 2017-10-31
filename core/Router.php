@@ -113,16 +113,16 @@ class Router
                     $controller_object->$action();
                 }
                 else {
-                    throw new Exception("Metódo $action no controller $controller não pode ser acionado " .
+                    throw new \Exception("Metódo $action no controller $controller não pode ser acionado " .
                         "diretamente - remova o sufixo da ação para chama este método");
                 }
             }
             else {
-                throw new Exception("Controller $controller não encontrado");
+                throw new \Exception("Controller $controller não encontrado");
             }
         }
         else {
-            throw new Exception('Rota não encontrada', 404);
+            throw new \Exception('Rota não encontrada', 404);
         }
     }
 
