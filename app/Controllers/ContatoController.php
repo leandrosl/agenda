@@ -2,16 +2,23 @@
 
 namespace Agenda\Controllers;
 
+use Core\Controller;
+
 use Agenda\Models\Contato;
 use Agenda\Repositories\ContatoRepository as Repository;
 
-class ContatoController
+class ContatoController extends Controller
 {
     private $repository;
 
     public function __construct()
     {
-        $this->repository = new Repository();
+        //$this->repository = new Repository();
+    }
+
+    public function index()
+    {
+        echo "test";
     }
 
     public function getContatos()
