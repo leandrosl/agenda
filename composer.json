@@ -7,7 +7,9 @@
             "email": "leandro.souza47@hotmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "twig/twig":"^2.0"
+    },
     "autoload": {
         "psr-4": {
             "Agenda\\": "app\\",

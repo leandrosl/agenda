@@ -3,6 +3,7 @@
 namespace Agenda\Controllers;
 
 use Core\Controller;
+use Core\View;
 
 use Agenda\Models\Contato;
 use Agenda\Repositories\ContatoRepository as Repository;
